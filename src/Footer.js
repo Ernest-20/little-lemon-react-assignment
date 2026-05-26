@@ -3,10 +3,10 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <p>© 2026 Little Lemon Restaurant</p>
 
-      <ul>
+      <ul className="footer-list">
         <li><a href="#">Home</a></li>
         <li><a href="#">Menu</a></li>
         <li><a href="#">Reservations</a></li>

@@ -1,38 +1,116 @@
-.App {
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*BODY*/
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/*HEADER*/
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4ce14;
+}
+
+.logo {
+  width: 150px;
+}
+
+/*NAV*/
+.nav {
+  background-color: #495e57;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*MAIN*/
+.main {
+  padding: 20px;
+}
+
+/*Hero Section*/
+.hero {
+  text-align: center;
+  margin-bottom: 30px;
+};
+
+/*CARD SECTION*/
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: #f4ce14;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.card h3 {
+  margin-bottom: 10px;
+}
+/*FOOTER*/
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #495e57;
+  color: #fff;
+  margin-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.footer-list {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.footer-list a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/*RESPONSIVE DESIGN*/
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .logo {
+    width: 120px;
   }
-  to {
-    transform: rotate(360deg);
   }
-}
