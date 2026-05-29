@@ -99,6 +99,27 @@ body {
   text-decoration: none;
 }
 
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 8px;
+}
+
+.booking-form button {
+  padding: 10px;
+  background-color: #495e57;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
 /*RESPONSIVE DESIGN*/
 @media (max-width: 768px) {
   .nav-list {

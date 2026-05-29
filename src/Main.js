@@ -1,31 +1,48 @@
-import React from "react";
+import React, { useReducer } from "react";
+import BookingForm from "./BookingForm";
+import { fetchAPI } from "./api";
+import { useNavigate } from "react-router-dom";
+import { submitAPI } from "./api";
+
+
+/* 1. INITIAL TIMES */
+export const initializeTimes = () => {
+  return fetchAPI(new Date());
+};
+
+/* UPDATE TIMES USING SELECTED DATE */
+export const updateTimes = (state, action) => {
+  if (action.type === "UPDATE_TIMES") {
+    return fetchAPI(new Date(action.payload));
+  }
+  return state;
+};
 
 function Main() {
-    return (
-        <main className="main">
-            <section className="hero">
-                <h2>Welcome to Little Lemon</h2>
-                <p>Experience the vibrant flavors of Mediterranean cuisine at Little Lemon. Our menu features a delightful array of dishes crafted with fresh, locally sourced ingredients. From our signature lemon-infused entrees to our delectable desserts, every bite is a celebration of taste. Join us for an unforgettable dining experience that will tantalize your taste buds and leave you craving more.</p>
-            </section>
+  const [availableTimes, dispatch] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes
+  );
+  const navigate = useNavigate();
 
-            <section className="cards">
-                <article className="card">
-                    <h3>Specialty Dish</h3>
-                    <p>Our chef's choice dish, made with the freshest ingredients.</p>
-                </article>
+  const submitForm = (formData) => {
+  const success = submitAPI(formData);
 
-                <article className="card">
-                    <h3> Dessert</h3>
-                    <p>Indulge in our delicious lemon tart, a perfect end to your meal.</p>
-                </article>
+  if (success) {
+    navigate("/confirmed");
+  }
+};
 
-                <article className="card">
-                    <h3>Burger</h3>
-                    <p>Juicy grilled burgers.</p>
-                </article>
-            </section>
-        </main>
-    )
+  return (
+    <main>
+      <BookingForm
+      availableTimes={availableTimes}
+      dispatch={dispatch}
+      submitForm={submitForm}
+      />
+    </main>
+  );
 }
 
 export default Main;
