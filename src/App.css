@@ -120,6 +120,12 @@ body {
   cursor: pointer;
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 /*RESPONSIVE DESIGN*/
 @media (max-width: 768px) {
   .nav-list {
